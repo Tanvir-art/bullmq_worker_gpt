@@ -25,13 +25,15 @@ dotenv.config();
 
 export const sendToBackend = async (
   userId: string,
-  message: string
+  message: string,
+  chatId: string
 ) => {
   await axios.post(
     `${process.env.BACKEND_URL}/chat/internal/response`,
     {
       user: userId,
       message,
+      chatId,
     },
     {
       headers: {
